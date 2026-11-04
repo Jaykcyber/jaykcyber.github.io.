@@ -1,0 +1,50 @@
+[
+    {
+        "generator": "ADM",
+        "samples": 500,
+        "accuracy": 0.966,
+        "precision": 0.9568627450980393,
+        "recall": 0.976,
+        "f1": 0.9663366336633663
+    },
+    {
+        "generator": "BigGAN",
+        "samples": 500,
+        "accuracy": 0.952,
+        "precision": 0.9556451612903226,
+        "recall": 0.948,
+        "f1": 0.9518072289156626
+    },
+    {
+        "generator": "GLIDE",
+        "samples": 500,
+        "accuracy": 0.944,
+        "precision": 0.9549180327868853,
+        "recall": 0.932,
+        "f1": 0.9433198380566802
+    },
+    {
+        "generator": "Midjourney",
+        "samples": 500,
+        "accuracy": 0.78,
+        "precision": 0.9320987654320988,
+        "recall": 0.604,
+        "f1": 0.7330097087378641
+    },
+    {
+        "generator": "SD15",
+        "samples": 500,
+        "accuracy": 0.822,
+        "precision": 0.9398907103825137,
+        "recall": 0.688,
+        "f1": 0.7944572748267898
+    },
+    {
+        "generator": "VQDM",
+        "samples": 500,
+        "accuracy": 0.844,
+        "precision": 0.9432989690721649,
+        "recall": 0.732,
+        "f1": 0.8243243243243243
+    }
+]

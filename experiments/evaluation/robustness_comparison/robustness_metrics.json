@@ -1,0 +1,1160 @@
+{
+    "Original": {
+        "Seen": {
+            "Clean": {
+                "metrics": {
+                    "accuracy": 0.9368421052631579,
+                    "precision": 0.9674515235457064,
+                    "recall": 0.9313333333333333,
+                    "f1": 0.9490489130434783,
+                    "confusion_matrix": [
+                        [
+                            828,
+                            47
+                        ],
+                        [
+                            103,
+                            1397
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9462857142857143
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.98
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.836
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.932
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.996
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.992
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.852
+                    }
+                }
+            },
+            "JPEG_Q70": {
+                "metrics": {
+                    "accuracy": 0.49642105263157893,
+                    "precision": 0.9871794871794872,
+                    "recall": 0.20533333333333334,
+                    "f1": 0.33995584988962474,
+                    "confusion_matrix": [
+                        [
+                            871,
+                            4
+                        ],
+                        [
+                            1192,
+                            308
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9954285714285714
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.46
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.232
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.152
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.168
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.092
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.128
+                    }
+                }
+            },
+            "Resize_Degradation": {
+                "metrics": {
+                    "accuracy": 0.6412631578947369,
+                    "precision": 0.6377551020408163,
+                    "recall": 1.0,
+                    "f1": 0.778816199376947,
+                    "confusion_matrix": [
+                        [
+                            23,
+                            852
+                        ],
+                        [
+                            0,
+                            1500
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.026285714285714287
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    }
+                }
+            },
+            "Gaussian_Noise": {
+                "metrics": {
+                    "accuracy": 0.6711578947368421,
+                    "precision": 0.8407582938388626,
+                    "recall": 0.5913333333333334,
+                    "f1": 0.6943248532289629,
+                    "confusion_matrix": [
+                        [
+                            707,
+                            168
+                        ],
+                        [
+                            613,
+                            887
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.808
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.916
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.464
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.756
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.564
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.544
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.304
+                    }
+                }
+            },
+            "Gaussian_Blur": {
+                "metrics": {
+                    "accuracy": 0.6901052631578948,
+                    "precision": 0.6709937332139659,
+                    "recall": 0.9993333333333333,
+                    "f1": 0.8028923406534547,
+                    "confusion_matrix": [
+                        [
+                            140,
+                            735
+                        ],
+                        [
+                            1,
+                            1499
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.16
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.996
+                    }
+                }
+            }
+        },
+        "Unseen_Wukong": {
+            "Clean": {
+                "metrics": {
+                    "accuracy": 0.8986666666666666,
+                    "precision": 0.7982456140350878,
+                    "recall": 0.728,
+                    "f1": 0.7615062761506276,
+                    "confusion_matrix": [
+                        [
+                            829,
+                            46
+                        ],
+                        [
+                            68,
+                            182
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9474285714285714
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.728
+                    }
+                }
+            },
+            "JPEG_Q70": {
+                "metrics": {
+                    "accuracy": 0.8088888888888889,
+                    "precision": 0.7966101694915254,
+                    "recall": 0.188,
+                    "f1": 0.3042071197411003,
+                    "confusion_matrix": [
+                        [
+                            863,
+                            12
+                        ],
+                        [
+                            203,
+                            47
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9862857142857143
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.188
+                    }
+                }
+            },
+            "Resize_Degradation": {
+                "metrics": {
+                    "accuracy": 0.23733333333333334,
+                    "precision": 0.2246376811594203,
+                    "recall": 0.992,
+                    "f1": 0.3663220088626292,
+                    "confusion_matrix": [
+                        [
+                            19,
+                            856
+                        ],
+                        [
+                            2,
+                            248
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.021714285714285714
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.992
+                    }
+                }
+            },
+            "Gaussian_Noise": {
+                "metrics": {
+                    "accuracy": 0.7342222222222222,
+                    "precision": 0.4046692607003891,
+                    "recall": 0.416,
+                    "f1": 0.41025641025641024,
+                    "confusion_matrix": [
+                        [
+                            722,
+                            153
+                        ],
+                        [
+                            146,
+                            104
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.8251428571428572
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.416
+                    }
+                }
+            },
+            "Gaussian_Blur": {
+                "metrics": {
+                    "accuracy": 0.3288888888888889,
+                    "precision": 0.24724724724724725,
+                    "recall": 0.988,
+                    "f1": 0.3955164131305044,
+                    "confusion_matrix": [
+                        [
+                            123,
+                            752
+                        ],
+                        [
+                            3,
+                            247
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.14057142857142857
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.988
+                    }
+                }
+            }
+        }
+    },
+    "Generalized": {
+        "Seen": {
+            "Clean": {
+                "metrics": {
+                    "accuracy": 0.9536842105263158,
+                    "precision": 0.9639519359145527,
+                    "recall": 0.9626666666666667,
+                    "f1": 0.9633088725817212,
+                    "confusion_matrix": [
+                        [
+                            821,
+                            54
+                        ],
+                        [
+                            56,
+                            1444
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9382857142857143
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.996
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.888
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.988
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.996
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.984
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.924
+                    }
+                }
+            },
+            "JPEG_Q70": {
+                "metrics": {
+                    "accuracy": 0.568,
+                    "precision": 0.9114583333333334,
+                    "recall": 0.35,
+                    "f1": 0.5057803468208093,
+                    "confusion_matrix": [
+                        [
+                            824,
+                            51
+                        ],
+                        [
+                            975,
+                            525
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9417142857142857
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.556
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.536
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.172
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.264
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.06
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.512
+                    }
+                }
+            },
+            "Resize_Degradation": {
+                "metrics": {
+                    "accuracy": 0.64,
+                    "precision": 0.6369426751592356,
+                    "recall": 1.0,
+                    "f1": 0.7782101167315175,
+                    "confusion_matrix": [
+                        [
+                            20,
+                            855
+                        ],
+                        [
+                            0,
+                            1500
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.022857142857142857
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    }
+                }
+            },
+            "Gaussian_Noise": {
+                "metrics": {
+                    "accuracy": 0.7014736842105264,
+                    "precision": 0.7771548703573932,
+                    "recall": 0.7393333333333333,
+                    "f1": 0.7577724632729758,
+                    "confusion_matrix": [
+                        [
+                            557,
+                            318
+                        ],
+                        [
+                            391,
+                            1109
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.6365714285714286
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.984
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.668
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.908
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.684
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.748
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.444
+                    }
+                }
+            },
+            "Gaussian_Blur": {
+                "metrics": {
+                    "accuracy": 0.7334736842105263,
+                    "precision": 0.7038081805359662,
+                    "recall": 0.998,
+                    "f1": 0.8254755996691481,
+                    "confusion_matrix": [
+                        [
+                            245,
+                            630
+                        ],
+                        [
+                            3,
+                            1497
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.28
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.992
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 1.0
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.996
+                    }
+                }
+            }
+        },
+        "Unseen_Wukong": {
+            "Clean": {
+                "metrics": {
+                    "accuracy": 0.9004444444444445,
+                    "precision": 0.7574626865671642,
+                    "recall": 0.812,
+                    "f1": 0.7837837837837838,
+                    "confusion_matrix": [
+                        [
+                            810,
+                            65
+                        ],
+                        [
+                            47,
+                            203
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9257142857142857
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.812
+                    }
+                }
+            },
+            "JPEG_Q70": {
+                "metrics": {
+                    "accuracy": 0.8613333333333333,
+                    "precision": 0.7303921568627451,
+                    "recall": 0.596,
+                    "f1": 0.6563876651982379,
+                    "confusion_matrix": [
+                        [
+                            820,
+                            55
+                        ],
+                        [
+                            101,
+                            149
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.9371428571428572
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.596
+                    }
+                }
+            },
+            "Resize_Degradation": {
+                "metrics": {
+                    "accuracy": 0.22933333333333333,
+                    "precision": 0.22331838565022422,
+                    "recall": 0.996,
+                    "f1": 0.3648351648351648,
+                    "confusion_matrix": [
+                        [
+                            9,
+                            866
+                        ],
+                        [
+                            1,
+                            249
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.010285714285714285
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.996
+                    }
+                }
+            },
+            "Gaussian_Noise": {
+                "metrics": {
+                    "accuracy": 0.624,
+                    "precision": 0.3098901098901099,
+                    "recall": 0.564,
+                    "f1": 0.4,
+                    "confusion_matrix": [
+                        [
+                            561,
+                            314
+                        ],
+                        [
+                            109,
+                            141
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.6411428571428571
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.564
+                    }
+                }
+            },
+            "Gaussian_Blur": {
+                "metrics": {
+                    "accuracy": 0.4097777777777778,
+                    "precision": 0.270509977827051,
+                    "recall": 0.976,
+                    "f1": 0.4236111111111111,
+                    "confusion_matrix": [
+                        [
+                            217,
+                            658
+                        ],
+                        [
+                            6,
+                            244
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.248
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.976
+                    }
+                }
+            }
+        }
+    },
+    "Robust": {
+        "Seen": {
+            "Clean": {
+                "metrics": {
+                    "accuracy": 0.9271578947368421,
+                    "precision": 0.9385327164573695,
+                    "recall": 0.9466666666666667,
+                    "f1": 0.9425821440424825,
+                    "confusion_matrix": [
+                        [
+                            782,
+                            93
+                        ],
+                        [
+                            80,
+                            1420
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.8937142857142857
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.996
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.944
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.964
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.924
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.952
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.9
+                    }
+                }
+            },
+            "JPEG_Q70": {
+                "metrics": {
+                    "accuracy": 0.8581052631578947,
+                    "precision": 0.9216823785351704,
+                    "recall": 0.8473333333333334,
+                    "f1": 0.8829454671761028,
+                    "confusion_matrix": [
+                        [
+                            767,
+                            108
+                        ],
+                        [
+                            229,
+                            1271
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.8765714285714286
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.984
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.772
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.812
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.844
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.908
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.764
+                    }
+                }
+            },
+            "Resize_Degradation": {
+                "metrics": {
+                    "accuracy": 0.8117894736842105,
+                    "precision": 0.7884931506849315,
+                    "recall": 0.9593333333333334,
+                    "f1": 0.8655639097744361,
+                    "confusion_matrix": [
+                        [
+                            489,
+                            386
+                        ],
+                        [
+                            61,
+                            1439
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.5588571428571428
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.952
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.984
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.984
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.956
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.96
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.92
+                    }
+                }
+            },
+            "Gaussian_Noise": {
+                "metrics": {
+                    "accuracy": 0.8488421052631578,
+                    "precision": 0.8899521531100478,
+                    "recall": 0.868,
+                    "f1": 0.8788390145123186,
+                    "confusion_matrix": [
+                        [
+                            714,
+                            161
+                        ],
+                        [
+                            198,
+                            1302
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.816
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.984
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.88
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.868
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.852
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.896
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.728
+                    }
+                }
+            },
+            "Gaussian_Blur": {
+                "metrics": {
+                    "accuracy": 0.8618947368421053,
+                    "precision": 0.8573170731707317,
+                    "recall": 0.9373333333333334,
+                    "f1": 0.8955414012738854,
+                    "confusion_matrix": [
+                        [
+                            641,
+                            234
+                        ],
+                        [
+                            94,
+                            1406
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.7325714285714285
+                    },
+                    "1": {
+                        "images": 250,
+                        "accuracy": 0.976
+                    },
+                    "6": {
+                        "images": 250,
+                        "accuracy": 0.96
+                    },
+                    "7": {
+                        "images": 250,
+                        "accuracy": 0.984
+                    },
+                    "3": {
+                        "images": 250,
+                        "accuracy": 0.924
+                    },
+                    "2": {
+                        "images": 250,
+                        "accuracy": 0.892
+                    },
+                    "4": {
+                        "images": 250,
+                        "accuracy": 0.888
+                    }
+                }
+            }
+        },
+        "Unseen_Wukong": {
+            "Clean": {
+                "metrics": {
+                    "accuracy": 0.8924444444444445,
+                    "precision": 0.7021943573667712,
+                    "recall": 0.896,
+                    "f1": 0.7873462214411248,
+                    "confusion_matrix": [
+                        [
+                            780,
+                            95
+                        ],
+                        [
+                            26,
+                            224
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.8914285714285715
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.896
+                    }
+                }
+            },
+            "JPEG_Q70": {
+                "metrics": {
+                    "accuracy": 0.8497777777777777,
+                    "precision": 0.6345514950166113,
+                    "recall": 0.764,
+                    "f1": 0.6932849364791288,
+                    "confusion_matrix": [
+                        [
+                            765,
+                            110
+                        ],
+                        [
+                            59,
+                            191
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.8742857142857143
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.764
+                    }
+                }
+            },
+            "Resize_Degradation": {
+                "metrics": {
+                    "accuracy": 0.632,
+                    "precision": 0.3685897435897436,
+                    "recall": 0.92,
+                    "f1": 0.5263157894736842,
+                    "confusion_matrix": [
+                        [
+                            481,
+                            394
+                        ],
+                        [
+                            20,
+                            230
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.5497142857142857
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.92
+                    }
+                }
+            },
+            "Gaussian_Noise": {
+                "metrics": {
+                    "accuracy": 0.8115555555555556,
+                    "precision": 0.5497382198952879,
+                    "recall": 0.84,
+                    "f1": 0.6645569620253164,
+                    "confusion_matrix": [
+                        [
+                            703,
+                            172
+                        ],
+                        [
+                            40,
+                            210
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.8034285714285714
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.84
+                    }
+                }
+            },
+            "Gaussian_Blur": {
+                "metrics": {
+                    "accuracy": 0.7626666666666667,
+                    "precision": 0.4817987152034261,
+                    "recall": 0.9,
+                    "f1": 0.6276150627615062,
+                    "confusion_matrix": [
+                        [
+                            633,
+                            242
+                        ],
+                        [
+                            25,
+                            225
+                        ]
+                    ]
+                },
+                "per_generator": {
+                    "0": {
+                        "images": 875,
+                        "accuracy": 0.7234285714285714
+                    },
+                    "8": {
+                        "images": 250,
+                        "accuracy": 0.9
+                    }
+                }
+            }
+        }
+    }
+}

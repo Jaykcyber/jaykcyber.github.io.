@@ -1,0 +1,18 @@
+{
+    "model": "efficientnet_b0",
+    "dataset": "generalized_unseen_wukong",
+    "accuracy": 0.9004444444444445,
+    "precision": 0.7574626865671642,
+    "recall": 0.812,
+    "f1": 0.7837837837837838,
+    "confusion_matrix": [
+        [
+            810,
+            65
+        ],
+        [
+            47,
+            203
+        ]
+    ]
+}
