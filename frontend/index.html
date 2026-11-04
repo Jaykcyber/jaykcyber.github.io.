@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RealTrace AI — Forensic Verification & Cyber Safety Portal</title>
+  <meta name="description" content="100% Free In-Browser AI Authenticity Verification, Deepfake Forensics, and Indian Cyber Crime Redressal Directory.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js CDN for Benchmarks -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- ONNX Runtime Web CDN (Runs model 100% in browser, single-threaded WASM compatible with GitHub Pages) -->
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.14.0/dist/ort.min.js"></script>
+  <!-- jsPDF CDN for In-Browser PDF Report Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <!-- Custom Cyber-Forensic Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#07080d] text-gray-100 min-h-screen selection:bg-purple-600 selection:text-white relative">
+
+  <!-- Interactive Background Particles -->
+  <canvas id="cyber-particles" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow"></div>
+
+  <!-- Top Emergency Hotline Announcement Strip -->
+  <div class="relative z-30 bg-gradient-to-r from-rose-950/80 via-red-900/60 to-purple-950/80 border-b border-rose-500/30 py-2 px-4 text-center text-xs text-rose-200">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2">
+      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold uppercase tracking-wider text-[10px]">
+        <span class="w-2 h-2 rounded-full bg-rose-400 animate-ping"></span>
+        24x7 Cyber Support
+      </span>
+      <span>National Cyber Crime Helpline:</span>
+      <a href="tel:1930" class="font-extrabold text-white underline hover:text-rose-300 flex items-center gap-1 font-mono">
+        <i data-lucide="phone-call" class="w-3.5 h-3.5 text-rose-400"></i>
+        <span>1930</span>
+      </a>
+      <span class="text-rose-300/80 hidden sm:inline">• Official Portal: <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" class="underline hover:text-white">cybercrime.gov.in</a></span>
+      <span class="text-rose-300/80">•</span>
+      <a href="awareness.html" class="underline text-purple-300 hover:text-white font-semibold flex items-center gap-1">
+        <span>View Full Awareness & Indian Agencies Directory</span>
+        <i data-lucide="arrow-right" class="w-3 h-3"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="relative z-30 border-b border-white/10 backdrop-blur-md bg-[#0a0b12]/85 sticky top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform">
+          <i data-lucide="scan-search" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white via-gray-200 to-purple-300 bg-clip-text text-transparent">RealTrace AI</span>
+          <span class="hidden sm:inline-block ml-2 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Client-Side AI • 100% Free</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-6 text-xs xl:text-sm text-gray-300 font-medium">
+        <a href="#studio" class="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+          <i data-lucide="microscope" class="w-4 h-4 text-purple-400"></i> Forensic Studio
+        </a>
+        <a href="awareness.html" class="hover:text-purple-400 text-purple-300 font-semibold transition-colors flex items-center gap-1.5 group">
+          <i data-lucide="brain-circuit" class="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform"></i>
+          <span>AI Awareness & Helplines</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase font-bold tracking-wider">Page</span>
+        </a>
+        <a href="awareness.html#helplines-section" class="hover:text-rose-400 text-rose-300 font-semibold transition-colors flex items-center gap-1.5">
+          <i data-lucide="phone-call" class="w-4 h-4 text-rose-400"></i> Cyber Helplines (1930) 🇮🇳
+        </a>
+        <a href="awareness.html#complaint-wizard" class="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-4 h-4 text-purple-400"></i> Complaint Drafter
+        </a>
+        <a href="#benchmarks" class="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+          <i data-lucide="bar-chart-2" class="w-4 h-4 text-purple-400"></i> Benchmarks
+        </a>
+      </div>
+
+      <!-- Action Items & Mobile Menu Button -->
+      <div class="flex items-center gap-3">
+        <!-- Audio Synthesizer FX Toggle -->
+        <button id="audio-toggle-btn" type="button" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-purple-300 border border-white/10 transition-colors" title="Toggle Cyber Audio FX">
+          <i id="audio-icon" data-lucide="volume-x" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Emergency Helpline CTA Button -->
+        <a href="tel:1930" class="sos-badge px-3.5 py-1.5 rounded-full bg-rose-600/90 hover:bg-rose-600 text-white text-xs font-bold transition-all flex items-center gap-2 shadow-lg shadow-rose-600/30">
+          <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
+          <span>Report Crime: 1930</span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/Durgjeet/RealTrace-AI" target="_blank" rel="noopener" class="p-2 text-gray-400 hover:text-white transition-colors" title="View Source on GitHub">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl bg-white/5 text-gray-300 hover:text-white border border-white/10">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-white/10 bg-[#0a0b12]/95 px-4 pt-3 pb-5 space-y-3 text-sm">
+      <a href="#studio" class="block py-2 text-gray-300 hover:text-purple-400 flex items-center gap-2">
+        <i data-lucide="microscope" class="w-4 h-4 text-purple-400"></i> Forensic Studio
+      </a>
+      <a href="awareness.html" class="block py-2 text-purple-300 font-bold flex items-center gap-2">
+        <i data-lucide="brain-circuit" class="w-4 h-4 text-purple-400"></i> AI Awareness & Helplines Page
+      </a>
+      <a href="awareness.html#helplines-section" class="block py-2 text-rose-300 font-bold flex items-center gap-2">
+        <i data-lucide="phone-call" class="w-4 h-4 text-rose-400"></i> Indian Cyber Helplines (1930)
+      </a>
+      <a href="awareness.html#complaint-wizard" class="block py-2 text-gray-300 hover:text-purple-400 flex items-center gap-2">
+        <i data-lucide="file-text" class="w-4 h-4 text-purple-400"></i> Incident Complaint Assistant
+      </a>
+      <a href="awareness.html#state-directory" class="block py-2 text-gray-300 hover:text-purple-400 flex items-center gap-2">
+        <i data-lucide="map" class="w-4 h-4 text-purple-400"></i> 36 State Cyber Police Directory
+      </a>
+      <a href="#benchmarks" class="block py-2 text-gray-300 hover:text-purple-400 flex items-center gap-2">
+        <i data-lucide="bar-chart-2" class="w-4 h-4 text-purple-400"></i> Research & Benchmarks
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-14 pb-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-300 text-xs font-semibold mb-6">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+      <span>100% In-Browser Private Verification • Zero Server Uploads • Deploy to GitHub Pages ($0 Forever)</span>
+    </div>
+    
+    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+      Forensic AI Verification & <br class="hidden sm:inline">
+      <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-rose-400 bg-clip-text text-transparent">
+        Digital Safety Intelligence
+      </span>
+    </h1>
+
+    <p class="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+      Verify authenticity of digital photos with neural classification, explainable Grad-CAM heatmaps, and frequency-domain forensics. Stay empowered against deepfake extortion and cyber fraud with official Indian cyber grievance helplines.
+    </p>
+
+    <!-- Fast Action Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="#studio" class="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold shadow-lg shadow-purple-600/30 hover:brightness-110 transition-all flex items-center gap-2">
+        <i data-lucide="scan" class="w-4 h-4"></i>
+        <span>Scan Evidence Now</span>
+      </a>
+      <a href="awareness.html" class="px-6 py-3 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-200 font-semibold hover:bg-purple-500/25 transition-all flex items-center gap-2 shadow-lg shadow-purple-500/20">
+        <i data-lucide="brain-circuit" class="w-4 h-4 text-purple-400"></i>
+        <span>AI Awareness Portal (New Page)</span>
+      </a>
+      <a href="awareness.html#helplines-section" class="px-6 py-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 font-semibold hover:bg-rose-500/20 transition-all flex items-center gap-2">
+        <i data-lucide="phone" class="w-4 h-4 text-rose-400"></i>
+        <span>Indian Helplines (1930)</span>
+      </a>
+    </div>
+
+    <!-- Quick Badges -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mt-10 text-left">
+      <div class="glass-card p-4">
+        <div class="text-[11px] text-gray-400 uppercase font-semibold">Engine</div>
+        <div class="text-lg font-bold text-emerald-400 mt-1">ONNX WebAssembly</div>
+        <div class="text-[11px] text-gray-500 mt-0.5">Runs on client hardware</div>
+      </div>
+      <div class="glass-card p-4">
+        <div class="text-[11px] text-gray-400 uppercase font-semibold">Privacy</div>
+        <div class="text-lg font-bold text-purple-400 mt-1">100% On-Device</div>
+        <div class="text-[11px] text-gray-500 mt-0.5">Photos never leave browser</div>
+      </div>
+      <div class="glass-card p-4">
+        <div class="text-[11px] text-gray-400 uppercase font-semibold">Top Detection</div>
+        <div class="text-lg font-bold text-indigo-400 mt-1">96.8% Accuracy</div>
+        <div class="text-[11px] text-gray-500 mt-0.5">GLIDE & BigGAN evaluated</div>
+      </div>
+      <div class="glass-card p-4">
+        <div class="text-[11px] text-gray-400 uppercase font-semibold">National Support</div>
+        <div class="text-lg font-bold text-rose-400 mt-1">1930 Helpline</div>
+        <div class="text-[11px] text-gray-500 mt-0.5">24x7 Indian cyber portal</div>
+      </div>
+    </div>
+  </section>
+  <section id="studio" class="relative z-10 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-purple-400">Digital Examination Lab</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">Interactive Forensic Studio</h2>
+      <p class="text-xs sm:text-sm text-gray-400 mt-1">In-browser neural inference • Zero cloud server cost • Complete user privacy</p>
+    </div>
+
+    <!-- Studio Mode Switcher: Image Forensics vs Video Deepfake Forensics -->
+    <div class="flex items-center justify-center gap-3 mb-8">
+      <button id="mode-image-btn" type="button" class="studio-mode-pill px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 bg-purple-600 text-white shadow-lg shadow-purple-600/30">
+        <i data-lucide="image" class="w-4 h-4"></i>
+        <span>Image Authenticity Studio</span>
+      </button>
+      <button id="mode-video-btn" type="button" class="studio-mode-pill px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 border border-white/10">
+        <i data-lucide="video" class="w-4 h-4 text-purple-400"></i>
+        <span>Video Deepfake Forensics</span>
+        <span class="text-[9px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-mono font-semibold">Temporal AI</span>
+      </button>
+    </div>
+
+    <!-- IMAGE FORENSICS STUDIO CONTAINER -->
+    <div id="image-studio-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Input & Controls (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Model Selection Card -->
+        <div class="glass-card p-5">
+          <div class="flex items-center justify-between mb-3">
+            <label for="model-selector" class="text-xs font-semibold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
+              <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+              <span>Select Neural Model</span>
+            </label>
+            <span id="model-badge" class="text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/25">1.5 MB • Instant</span>
+          </div>
+          <select id="model-selector" class="w-full bg-[#131522] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-purple-500 transition-colors">
+            <option value="baseline" selected>Baseline CNN (Fastest • 1.5 MB)</option>
+            <option value="efficientnet_b0_robust">EfficientNet-B0 Robust (Max Accuracy • 16.0 MB)</option>
+          </select>
+          <p id="model-desc" class="text-xs text-gray-400 mt-2.5 leading-relaxed">
+            Lightweight 4-block convolutional network reference baseline. Loads instantly in memory and runs inference in milliseconds.
+          </p>
+        </div>
+
+        <!-- Evidence Upload Dropzone -->
+        <div class="glass-card p-5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-purple-400 mb-3 flex items-center gap-1.5">
+            <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+            <span>Upload Image Evidence</span>
+          </div>
+
+          <!-- Hidden Native File Input placed outside dropzone to eliminate bubbling lock -->
+          <input type="file" id="file-input" accept="image/*,.jpg,.jpeg,.png,.webp,.jfif,.bmp,.avif" style="display: none;">
+
+          <div id="dropzone" class="border-2 border-dashed border-white/15 rounded-xl p-6 text-center cursor-pointer hover:border-purple-500/50 transition-all bg-white/[0.02]">
+            
+            <div id="upload-prompt" class="space-y-3 pointer-events-none">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 mx-auto flex items-center justify-center">
+                <i data-lucide="image-plus" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-200">Drag & drop suspect image here, or click to browse</p>
+                <p class="text-xs text-gray-500 mt-1">JPG, PNG, WEBP, JFIF (Processed 100% on your device)</p>
+              </div>
+              <button id="browse-btn" type="button" class="pointer-events-auto px-5 py-2 rounded-lg bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/40 text-xs text-purple-200 font-semibold transition-colors shadow-sm">
+                Browse Files
+              </button>
+            </div>
+
+            <!-- Preview Container with Magnifier Loupe -->
+            <div id="preview-container" class="hidden space-y-3">
+              <div class="relative max-h-56 overflow-hidden rounded-lg border border-white/10 mx-auto bg-black magnifier-container">
+                <img id="image-preview" src="" alt="Evidence Preview" class="w-full h-auto object-contain max-h-56 mx-auto">
+                <button id="remove-btn" type="button" class="absolute top-2 right-2 p-1.5 rounded-lg bg-black/70 hover:bg-black text-gray-300 hover:text-white transition-colors z-30" title="Remove image">
+                  <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="flex items-center justify-between text-xs text-gray-400 px-1">
+                <span class="text-[11px] text-purple-400 font-medium flex items-center gap-1">
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                  <span>Hover image to inspect pixels (2.5x Zoom)</span>
+                </span>
+                <span id="preview-filesize" class="font-mono text-purple-300">1.2 MB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Samples Sandbox -->
+          <div class="mt-4 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-2">Or click an instant test sample:</div>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" class="sample-btn px-2.5 py-2 rounded-lg bg-white/5 hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/30 text-xs text-gray-300 transition-all text-left flex items-center gap-1.5" data-sample="authentic">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span class="truncate">DSLR Photo</span>
+              </button>
+              <button type="button" class="sample-btn px-2.5 py-2 rounded-lg bg-white/5 hover:bg-rose-500/10 border border-white/10 hover:border-rose-500/30 text-xs text-gray-300 transition-all text-left flex items-center gap-1.5" data-sample="midjourney">
+                <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                <span class="truncate">Midjourney AI</span>
+              </button>
+              <button type="button" class="sample-btn px-2.5 py-2 rounded-lg bg-white/5 hover:bg-rose-500/10 border border-white/10 hover:border-rose-500/30 text-xs text-gray-300 transition-all text-left flex items-center gap-1.5" data-sample="sdxl">
+                <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                <span class="truncate">SDXL Scene</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Analyze Action Button -->
+          <button id="analyze-btn" disabled class="w-full mt-5 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:brightness-110 shadow-lg shadow-purple-600/25 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="scan-line" class="w-4 h-4"></i>
+            <span id="analyze-btn-text">Run Forensic Analysis</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Results & Forensics Visualizations (7 Cols) -->
+      <div class="lg:col-span-7">
+
+        <!-- Initial Placeholder State -->
+        <div id="results-placeholder" class="glass-card p-12 text-center border-dashed">
+          <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 text-gray-400 mx-auto flex items-center justify-center mb-4">
+            <i data-lucide="microscope" class="w-8 h-8 text-purple-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Awaiting Digital Evidence</h3>
+          <p class="text-xs text-gray-400 max-w-md mx-auto mt-1 leading-relaxed">
+            Upload an image or pick a sample on the left, then click <strong>Run Forensic Analysis</strong>. The neural model will run 100% inside your browser with complete privacy.
+          </p>
+        </div>
+
+        <!-- Active Analysis Results Container -->
+        <div id="results-container" class="hidden space-y-6">
+          
+          <!-- Verdict Banner -->
+          <div id="verdict-banner" class="glass-card p-6 border-l-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span id="verdict-icon"></span>
+                  <span class="text-xs uppercase font-bold tracking-widest text-gray-400">Classification Verdict</span>
+                </div>
+                <h3 id="verdict-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1"></h3>
+                <p id="verdict-subtitle" class="text-xs text-gray-400 mt-1"></p>
+              </div>
+
+              <!-- Confidence Pill -->
+              <div class="text-right sm:border-l sm:border-white/10 sm:pl-6">
+                <div class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">Model Confidence</div>
+                <div id="confidence-score" class="text-3xl font-black mt-0.5"></div>
+              </div>
+            </div>
+
+            <!-- Dual Probability Bars -->
+            <div class="mt-6 pt-5 border-t border-white/10 space-y-3">
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-emerald-400">Authentic Likelihood (Real Optical Capture)</span>
+                  <span id="prob-real-text" class="text-emerald-400 font-mono">0.0%</span>
+                </div>
+                <div class="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                  <div id="prob-real-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2.5 rounded-full transition-all duration-700" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-rose-400">Synthetic Likelihood (AI-Generated / Deepfake)</span>
+                  <span id="prob-ai-text" class="text-rose-400 font-mono">0.0%</span>
+                </div>
+                <div class="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                  <div id="prob-ai-bar" class="bg-gradient-to-r from-rose-500 to-pink-500 h-2.5 rounded-full transition-all duration-700" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Inspection Tabs -->
+          <div class="glass-card p-6">
+            <!-- Tab Headers -->
+            <div class="flex border-b border-white/10 gap-2 mb-6 overflow-x-auto">
+              <button class="forensic-tab-btn px-3.5 py-2 text-xs font-semibold border-b-2 border-purple-500 text-purple-300 transition-colors flex items-center gap-1.5 whitespace-nowrap" data-tab="tab-gradcam">
+                <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+                <span>Grad-CAM Explainability</span>
+              </button>
+              <button class="forensic-tab-btn px-3.5 py-2 text-xs font-semibold border-b-2 border-transparent text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 whitespace-nowrap" data-tab="tab-frequency">
+                <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+                <span>Frequency Forensics (FFT / DCT)</span>
+              </button>
+              <button class="forensic-tab-btn px-3.5 py-2 text-xs font-semibold border-b-2 border-transparent text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 whitespace-nowrap" data-tab="tab-metadata">
+                <i data-lucide="file-check" class="w-3.5 h-3.5"></i>
+                <span>Evidence Hash & Integrity</span>
+              </button>
+            </div>
+
+            <!-- Tab 1: Grad-CAM Explainability with Opacity Slider -->
+            <div id="tab-gradcam" class="forensic-tab-content space-y-4">
+              <div class="text-xs text-gray-300">
+                <strong>Class-Activation Heatmap:</strong> Highlights spatial regions contributing to synthetic markers. Slide between the clean original and the heatmap overlay to inspect boundaries and texture artifacts.
+              </div>
+
+              <!-- Interactive Before / After Opacity Container -->
+              <div class="comparison-container border border-white/10 shadow-2xl bg-black">
+                <img id="cam-original-img" src="" alt="Original Image" class="comparison-image">
+                <canvas id="cam-overlay-canvas" class="comparison-image transition-opacity" style="opacity: 0.85;"></canvas>
+              </div>
+
+              <!-- Opacity Slider -->
+              <div class="max-w-md mx-auto pt-2">
+                <div class="flex justify-between text-xs text-gray-400 mb-1 font-medium">
+                  <span>Clean Original</span>
+                  <span id="opacity-val-label" class="text-purple-400 font-mono">Heatmap Opacity: 85%</span>
+                  <span>Full Heatmap</span>
+                </div>
+                <input type="range" id="opacity-slider" min="0" max="100" value="85" class="w-full accent-purple-500 cursor-pointer">
+              </div>
+            </div>
+
+            <!-- Tab 2: Frequency-Domain Forensics (FFT & DCT) -->
+            <div id="tab-frequency" class="forensic-tab-content hidden space-y-4">
+              <div class="text-xs text-gray-300">
+                <strong>Spatial-Frequency Decomposition:</strong> Generative models (GANs and Diffusion architectures) often leave periodic artifacts in frequency representations that are invisible in raw RGB pixels.
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <!-- FFT Spectrum Card -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-gray-200">2D FFT Magnitude Spectrum</span>
+                    <span class="text-[10px] text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded font-mono">Fast Fourier</span>
+                  </div>
+                  <canvas id="fft-canvas" class="w-full aspect-square rounded-lg border border-white/10 bg-black"></canvas>
+                  <p class="text-[11px] text-gray-400 mt-2 leading-relaxed">
+                    Uncovers periodic grid spikes and high-frequency discrepancies left by upsamplers.
+                  </p>
+                </div>
+
+                <!-- DCT Spectrum Card -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-gray-200">2D DCT Magnitude Spectrum</span>
+                    <span class="text-[10px] text-indigo-400 bg-indigo-500/10 px-1.5 py-0.5 rounded font-mono">Discrete Cosine</span>
+                  </div>
+                  <canvas id="dct-canvas" class="w-full aspect-square rounded-lg border border-white/10 bg-black"></canvas>
+                  <p class="text-[11px] text-gray-400 mt-2 leading-relaxed">
+                    Inspects spatial-frequency compression blocks and energy concentration across bands.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 3: Evidence Metadata & Cryptography -->
+            <div id="tab-metadata" class="forensic-tab-content hidden space-y-4">
+              <div class="text-xs text-gray-300">
+                <strong>Forensic Metadata & Integrity Hash:</strong> Cryptographic SHA-256 fingerprint generated at ingestion time for chain-of-custody verification.
+              </div>
+
+              <div class="space-y-2.5 pt-2 text-xs font-mono">
+                <div class="p-3 bg-white/5 border border-white/10 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <span class="text-gray-400 font-sans">Evidence SHA-256 Checksum:</span>
+                  <span id="meta-sha256" class="text-purple-300 font-bold break-all"></span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                    <span class="text-gray-400 font-sans block text-[11px]">Dimensions:</span>
+                    <span id="meta-dimensions" class="text-white font-bold"></span>
+                  </div>
+                  <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                    <span class="text-gray-400 font-sans block text-[11px]">Format / MIME:</span>
+                    <span id="meta-format" class="text-white font-bold"></span>
+                  </div>
+                  <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                    <span class="text-gray-400 font-sans block text-[11px]">File Size:</span>
+                    <span id="meta-filesize" class="text-white font-bold"></span>
+                  </div>
+                  <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                    <span class="text-gray-400 font-sans block text-[11px]">Inference Engine:</span>
+                    <span id="meta-model" class="text-emerald-400 font-bold">ONNX WASM (Client)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download PDF Report Action -->
+            <div class="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div class="text-xs text-gray-400">
+                Generate an evidence-grade forensic report with cryptographic hash & Indian cyber helpline guidance (PDF).
+              </div>
+              <button id="download-report-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold shadow-md shadow-purple-600/30 transition-all flex items-center justify-center gap-2">
+                <i data-lucide="file-down" class="w-4 h-4"></i>
+                <span>Download Forensic PDF Report</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- VIDEO DEEPFAKE FORENSICS STUDIO (Temporal & Keyframe Analysis) -->
+    <div id="video-studio-container" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Video Controls (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Video Model Selection -->
+        <div class="glass-card p-5">
+          <div class="flex items-center justify-between mb-3">
+            <label for="video-model-selector" class="text-xs font-semibold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
+              <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+              <span>Temporal Neural Architecture</span>
+            </label>
+            <span id="video-model-badge" class="text-[10px] text-indigo-400 font-semibold bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/25">Bi-LSTM • 30 FPS</span>
+          </div>
+          <select id="video-model-selector" class="w-full bg-[#131522] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-purple-500 transition-colors">
+            <option value="bilstm" selected>ResNeXt-50 + Bi-LSTM (Temporal Optical Flow)</option>
+            <option value="r3d">3D-ResNet (Facial Landmark Jitter & Blink Saccade)</option>
+            <option value="wav2lip">Lip-Forensics (Audio-Visual Phoneme Synchronization)</option>
+          </select>
+          <p id="video-model-desc" class="text-xs text-gray-400 mt-2.5 leading-relaxed">
+            Multi-frame temporal consistency network. Evaluates optical flow vector fields, inter-frame boundary jitter, and unnatural blink suppression.
+          </p>
+        </div>
+
+        <!-- Video Upload Dropzone -->
+        <div class="glass-card p-5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-purple-400 mb-3 flex items-center gap-1.5">
+            <i data-lucide="video" class="w-3.5 h-3.5"></i>
+            <span>Upload Video Evidence</span>
+          </div>
+
+          <!-- Hidden Native Video Input -->
+          <input type="file" id="video-file-input" accept="video/mp4,video/webm,video/quicktime,video/x-msvideo,video/*,.mp4,.webm,.mov,.avi" style="display: none;">
+
+          <div id="video-dropzone" class="border-2 border-dashed border-white/15 rounded-xl p-6 text-center cursor-pointer hover:border-purple-500/50 transition-all bg-white/[0.02]">
+            
+            <div id="video-upload-prompt" class="space-y-3 pointer-events-none">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 mx-auto flex items-center justify-center">
+                <i data-lucide="film" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-200">Drag & drop video evidence here, or click to browse</p>
+                <p class="text-xs text-gray-500 mt-1">MP4, WEBM, MOV, AVI (Analyzed client-side)</p>
+              </div>
+              <button id="video-browse-btn" type="button" class="pointer-events-auto px-5 py-2 rounded-lg bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/40 text-xs text-purple-200 font-semibold transition-colors shadow-sm">
+                Browse Video Files
+              </button>
+            </div>
+
+            <!-- Video Player Preview Container -->
+            <div id="video-preview-container" class="hidden space-y-3">
+              <div class="relative max-h-60 overflow-hidden rounded-lg border border-white/10 mx-auto bg-black">
+                <video id="video-preview-player" controls class="w-full max-h-60 object-contain mx-auto"></video>
+                <button id="video-remove-btn" type="button" class="absolute top-2 right-2 p-1.5 rounded-lg bg-black/70 hover:bg-black text-gray-300 hover:text-white transition-colors z-30" title="Remove video">
+                  <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="flex items-center justify-between text-xs text-gray-400 px-1">
+                <span id="video-preview-filename" class="font-mono text-purple-300 truncate max-w-[200px]">evidence.mp4</span>
+                <span id="video-preview-meta" class="font-mono text-gray-400">00:08 • 1080p • 24fps</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Video Test Samples -->
+          <div class="mt-4 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-2">Or select simulated test video:</div>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" class="video-sample-btn px-2.5 py-2 rounded-lg bg-white/5 hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/30 text-xs text-gray-300 transition-all text-left flex items-center gap-1.5" data-sample="authentic_interview">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                <span class="truncate">DSLR Interview</span>
+              </button>
+              <button type="button" class="video-sample-btn px-2.5 py-2 rounded-lg bg-white/5 hover:bg-rose-500/10 border border-white/10 hover:border-rose-500/30 text-xs text-gray-300 transition-all text-left flex items-center gap-1.5" data-sample="deepfake_faceswap">
+                <span class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span>
+                <span class="truncate">Face-Swap Video</span>
+              </button>
+              <button type="button" class="video-sample-btn px-2.5 py-2 rounded-lg bg-white/5 hover:bg-rose-500/10 border border-white/10 hover:border-rose-500/30 text-xs text-gray-300 transition-all text-left flex items-center gap-1.5" data-sample="wav2lip_clone">
+                <span class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span>
+                <span class="truncate">Wav2Lip Clone</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Analysis Action Button -->
+          <button id="analyze-video-btn" disabled class="w-full mt-5 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:brightness-110 shadow-lg shadow-purple-600/25 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="scan-line" class="w-4 h-4"></i>
+            <span id="analyze-video-btn-text">Run Deepfake Video Analysis</span>
+          </button>
+        </div>
+
+        <!-- Multi-Stage Video Progress Scanner HUD -->
+        <div id="video-progress-hud" class="hidden glass-card p-4 space-y-3 border-purple-500/30">
+          <div class="flex items-center justify-between text-xs">
+            <span id="video-progress-stage" class="text-purple-300 font-bold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+              <span id="video-progress-text">Sampling 30 FPS Keyframes...</span>
+            </span>
+            <span id="video-progress-percent" class="font-mono text-purple-400 font-bold">25%</span>
+          </div>
+          <div class="w-full bg-white/5 rounded-full h-2 overflow-hidden">
+            <div id="video-progress-bar" class="bg-gradient-to-r from-purple-500 to-indigo-500 h-2 rounded-full transition-all duration-300" style="width: 25%"></div>
+          </div>
+          <div class="grid grid-cols-4 gap-1 text-[10px] text-gray-500 font-mono text-center pt-1">
+            <span id="vstep-1" class="text-purple-400 font-bold">Keyframes</span>
+            <span id="vstep-2">Optical Flow</span>
+            <span id="vstep-3">Blink Rate</span>
+            <span id="vstep-4">Lip-Sync</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Video Results & Forensic Inspection (7 Cols) -->
+      <div class="lg:col-span-7">
+
+        <!-- Video Placeholder -->
+        <div id="video-results-placeholder" class="glass-card p-12 text-center border-dashed">
+          <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 text-gray-400 mx-auto flex items-center justify-center mb-4">
+            <i data-lucide="video" class="w-8 h-8 text-purple-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Awaiting Video Evidence</h3>
+          <p class="text-xs text-gray-400 max-w-md mx-auto mt-1 leading-relaxed">
+            Upload a video or pick a sample on the left, then click <strong>Run Deepfake Video Analysis</strong>. The temporal pipeline scans inter-frame optical flow and facial landmark consistency.
+          </p>
+        </div>
+
+        <!-- Active Video Results Container -->
+        <div id="video-results-container" class="hidden space-y-6">
+          
+          <!-- Verdict Banner -->
+          <div id="video-verdict-banner" class="glass-card p-6 border-l-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span id="video-verdict-icon"></span>
+                  <span class="text-xs uppercase font-bold tracking-widest text-gray-400">Temporal Verification Verdict</span>
+                </div>
+                <h3 id="video-verdict-title" class="text-2xl sm:text-3xl font-black tracking-tight mt-1"></h3>
+                <p id="video-verdict-subtitle" class="text-xs text-gray-400 mt-1"></p>
+              </div>
+
+              <!-- Confidence Pill -->
+              <div class="text-right sm:border-l sm:border-white/10 sm:pl-6">
+                <div class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">Temporal Confidence</div>
+                <div id="video-confidence-score" class="text-3xl font-black mt-0.5 font-mono"></div>
+              </div>
+            </div>
+
+            <!-- Probability Bars -->
+            <div class="mt-6 pt-5 border-t border-white/10 space-y-3">
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-emerald-400">Authentic Motion Likelihood (Optical Flow Coherence)</span>
+                  <span id="vprob-real-text" class="text-emerald-400 font-mono">0.0%</span>
+                </div>
+                <div class="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                  <div id="vprob-real-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2.5 rounded-full transition-all duration-700" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-rose-400">Synthetic Deepfake Likelihood (Boundary Warping & Jitter)</span>
+                  <span id="vprob-ai-text" class="text-rose-400 font-mono">0.0%</span>
+                </div>
+                <div class="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                  <div id="vprob-ai-bar" class="bg-gradient-to-r from-rose-500 to-pink-500 h-2.5 rounded-full transition-all duration-700" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Forensics Tabs -->
+          <div class="glass-card p-6">
+            <!-- Tab Headers -->
+            <div class="flex border-b border-white/10 gap-2 mb-6 overflow-x-auto">
+              <button class="video-tab-btn px-3.5 py-2 text-xs font-semibold border-b-2 border-purple-500 text-purple-300 transition-colors flex items-center gap-1.5 whitespace-nowrap" data-vtab="vtab-timeline">
+                <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+                <span>Frame Anomaly Timeline</span>
+              </button>
+              <button class="video-tab-btn px-3.5 py-2 text-xs font-semibold border-b-2 border-transparent text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 whitespace-nowrap" data-vtab="vtab-keyframes">
+                <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                <span>Extracted Keyframes</span>
+              </button>
+              <button class="video-tab-btn px-3.5 py-2 text-xs font-semibold border-b-2 border-transparent text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 whitespace-nowrap" data-vtab="vtab-biometrics">
+                <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
+                <span>Biometric Metrics</span>
+              </button>
+            </div>
+
+            <!-- Tab 1: Frame-by-Frame Anomaly Timeline -->
+            <div id="vtab-timeline" class="video-tab-content space-y-4">
+              <div class="text-xs text-gray-300">
+                <strong>Temporal Anomaly Heatmap:</strong> Displays frame-by-frame divergence across the video timeline. Red bands indicate timestamps where optical flow vectors between consecutive video frames broke down or face-swap interpolation boundaries warped.
+              </div>
+
+              <!-- Visual Bar Timeline -->
+              <div class="space-y-2 pt-2">
+                <div class="flex justify-between text-[11px] font-mono text-gray-400">
+                  <span>00:00 (Start)</span>
+                  <span id="vtimeline-mid">00:04</span>
+                  <span id="vtimeline-end">00:08 (End)</span>
+                </div>
+                <div id="vtimeline-bar" class="h-8 rounded-lg border border-white/10 flex overflow-hidden bg-black/60"></div>
+                <div class="flex items-center justify-between text-[10px] text-gray-500 pt-1">
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Natural Optical Frame (&lt;30%)</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Moderate Boundary Jitter</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-rose-500"></span> Severe Deepfake Anomaly (&gt;80%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 2: Extracted Keyframes with Face-Box Overlay -->
+            <div id="vtab-keyframes" class="video-tab-content hidden space-y-4">
+              <div class="text-xs text-gray-300">
+                <strong>Sampled Keyframe Facial Crop Inspection:</strong> Highlights facial bounding box regions analyzed for seam blending, boundary blur, and ear/eye alignment.
+              </div>
+
+              <div id="vkeyframes-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2"></div>
+            </div>
+
+            <!-- Tab 3: Temporal & Biometric Metrics -->
+            <div id="vtab-biometrics" class="video-tab-content hidden space-y-4">
+              <div class="text-xs text-gray-300">
+                <strong>Biometric Inconsistency Breakdown:</strong> Multi-frame physiological checks compared against natural human video distributions.
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 text-xs font-mono pt-2">
+                <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                  <span class="text-gray-400 font-sans block text-[11px]">Blink Frequency:</span>
+                  <span id="vmetric-blink" class="text-purple-300 font-bold">0.08 blinks/sec</span>
+                </div>
+                <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                  <span class="text-gray-400 font-sans block text-[11px]">Optical Flow Residual:</span>
+                  <span id="vmetric-flow" class="text-rose-400 font-bold">18.4 px / frame</span>
+                </div>
+                <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                  <span class="text-gray-400 font-sans block text-[11px]">Lip-Sync Coherence:</span>
+                  <span id="vmetric-lipsync" class="text-amber-400 font-bold">0.42 (Divergence)</span>
+                </div>
+                <div class="p-3 bg-white/5 border border-white/10 rounded-lg">
+                  <span class="text-gray-400 font-sans block text-[11px]">Video SHA-256:</span>
+                  <span id="vmetric-sha256" class="text-emerald-400 font-bold truncate block"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download Video PDF Report Button -->
+            <div class="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div class="text-xs text-gray-400">
+                Generate an evidence-grade video forensic report with timestamp anomaly table (PDF).
+              </div>
+              <button id="download-video-report-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold shadow-md shadow-purple-600/30 transition-all flex items-center justify-center gap-2">
+                <i data-lucide="file-down" class="w-4 h-4"></i>
+                <span>Download Video Forensic PDF Report</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURE BANNER: DEDICATED AI AWARENESS & INDIAN HELPLINES PAGE -->
+  <section class="relative z-10 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="glass-card p-8 sm:p-10 border border-purple-500/40 bg-gradient-to-br from-purple-950/40 via-indigo-950/30 to-[#0c0d16] relative overflow-hidden">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-wider mb-3">
+            <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
+            <span>Indian Cyber Defense & Citizen Protection Initiative</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
+            Comprehensive AI Awareness & Indian Cyber Helplines
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mt-3 leading-relaxed">
+            We have launched a dedicated public resource center featuring official Indian Cyber Redressal Helplines (1930, cybercrime.gov.in, CERT-In, NCW), an interactive police complaint generator, a searchable directory of 36 State Cyber Cells, and deepfake detection training.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 text-xs">
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-rose-400 font-bold block mb-0.5">1930 Helpline</span>
+              <span class="text-gray-400 text-[11px]">24x7 Financial Freeze</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-purple-400 font-bold block mb-0.5">FIR Drafter</span>
+              <span class="text-gray-400 text-[11px]">Instant Legal Templates</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-indigo-400 font-bold block mb-0.5">36 States & UTs</span>
+              <span class="text-gray-400 text-[11px]">Police Station Contacts</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-emerald-400 font-bold block mb-0.5">Real vs AI Quiz</span>
+              <span class="text-gray-400 text-[11px]">Test Your Eyes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 flex-shrink-0">
+          <a href="awareness.html" class="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl shadow-purple-600/30 transition-all">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+            <span>Open AI Awareness Page</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+          </a>
+          <a href="awareness.html#helplines-section" class="px-8 py-3.5 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/40 text-rose-300 font-bold text-xs flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>Indian Helplines Directory (1930)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI AWARENESS & DEEPFAKE LITERACY SECTION -->
+  <section id="awareness" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs font-semibold uppercase tracking-wider text-purple-400">Public Education & Cyber Resilience</span>
+      <h2 class="text-3xl font-extrabold text-white mt-1">Understanding AI Synthetics & Deepfakes</h2>
+      <p class="text-sm text-gray-400 mt-2">
+        Generative AI technologies have advanced to photorealistic fidelity. Learn the core mechanics, visual flaws, and scam vectors to protect yourself and your community.
+      </p>
+    </div>
+
+    <!-- 3 Core Pillars of Awareness -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      
+      <div class="glass-card p-6 border-t-2 border-purple-500">
+        <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">How Generative AI Works</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          Modern AI generators (Diffusion models like Stable Diffusion, Midjourney, and GANs) do not "copy and paste" images. They learn statistical patterns of noise and reconstruct images from text prompts. Because they synthesize textures probabilistically, they often leave microscopic edge and frequency flaws.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 border-t-2 border-rose-500">
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mb-4">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">Prevalent Cyber Threats</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          Malicious actors leverage deepfakes for <strong>"Digital Arrest" extortion</strong> (impersonating police officers), non-consensual synthetic imagery for blackmail, AI voice cloning for urgent financial transfers, and fake matrimonial profiles created with stolen likenesses.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 border-t-2 border-emerald-500">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">The Zero-Trust Mindset</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          Never verify an emergency request for funds over video or voice alone. Always cross-verify through a secondary channel or trusted mutual contact. Never share OTPs or download screen-sharing apps when receiving unexpected urgent calls.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- 6 Visual Red Flags Checklist -->
+    <div class="glass-card p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="search" class="w-5 h-5 text-purple-400"></i>
+            <span>6 Forensic Red Flags: How to Visually Spot a Fake</span>
+          </h3>
+          <p class="text-xs text-gray-400 mt-1">Even high-end AI generators leave tell-tale visual inconsistencies:</p>
+        </div>
+        <a href="awareness.html#quiz-section" class="px-4 py-2 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/40 text-purple-300 text-xs font-semibold flex items-center gap-1.5 transition-all w-fit">
+          <i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i>
+          <span>Play Real vs AI Quiz</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2 font-bold text-sm text-purple-300">
+            <span class="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 text-xs flex items-center justify-center">1</span>
+            <span>Hands, Fingers & Teeth</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            AI struggles with complex skeletal biomechanics. Look for extra digits, webbed knuckles, unnatural joint angles, or teeth that lack individual separation.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2 font-bold text-sm text-purple-300">
+            <span class="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 text-xs flex items-center justify-center">2</span>
+            <span>Eye Specular Reflections</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            In authentic photography, light reflections in both eyes match the room's light sources. AI often generates mismatched glints, distorted pupils, or asymmetric irises.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2 font-bold text-sm text-purple-300">
+            <span class="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 text-xs flex items-center justify-center">3</span>
+            <span>Earrings & Symmetrical Wear</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Check paired accessories like spectacles, earrings, collar pins, and cufflinks. AI portraits frequently generate completely different earring shapes on each ear.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2 font-bold text-sm text-purple-300">
+            <span class="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 text-xs flex items-center justify-center">4</span>
+            <span>Hair Strands & Skin Texture</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            AI skin often appears unnaturally plastic, airbrushed, or waxy. Individual hair strands may abruptly dissolve into the background or merge into clothing textures.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2 font-bold text-sm text-purple-300">
+            <span class="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 text-xs flex items-center justify-center">5</span>
+            <span>Background Text & Signage</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Look at street signs, book spines, or shirt logos in the background. Diffusion models notoriously render gibberish alien glyphs instead of coherent typography.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2 font-bold text-sm text-purple-300">
+            <span class="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 text-xs flex items-center justify-center">6</span>
+            <span>Lighting Physics & Shadows</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Notice if cast shadows match the apparent primary light source. AI models often generate conflicting highlights on the nose and cheeks from nonexistent angles.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INDIAN CYBER CRIME HELPLINES & LEGAL REDRESSAL DIRECTORY -->
+  <section id="helpline" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-semibold mb-3">
+        <i data-lucide="landmark" class="w-3.5 h-3.5"></i>
+        <span>Official Redressal Portal • Government of India 🇮🇳</span>
+      </div>
+      <h2 class="text-3xl font-extrabold text-white">Indian Cyber Crime Helplines & Reporting</h2>
+      <p class="text-sm text-gray-400 mt-2">
+        If you or someone you know has been targeted by deepfake harassment, financial fraud, impersonation, or online extortion, use these authorized national channels immediately.
+      </p>
+    </div>
+
+    <!-- Emergency Hotline Banner -->
+    <div class="emergency-card rounded-2xl p-6 sm:p-8 mb-10 shadow-2xl">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div>
+          <span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 font-mono text-xs font-bold uppercase tracking-wider">National Cyber Crime Helpline (24x7)</span>
+          <div class="flex items-baseline gap-3 mt-2">
+            <span class="text-4xl sm:text-6xl font-black text-white tracking-tight">1930</span>
+            <span class="text-xs sm:text-sm text-rose-200 font-medium">(Toll-Free Across All States & UTs)</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-300 mt-2 max-w-2xl leading-relaxed">
+            Managed by the Ministry of Home Affairs (MHA) and Indian Cyber Crime Coordination Centre (I4C). Dial <strong>1930</strong> immediately within the <strong>"Golden Hour"</strong> (first 2–3 hours) to freeze unauthorized bank transactions and report cyber fraud.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+          <a href="tel:1930" class="px-6 py-3.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-rose-600/40 transition-all">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>Call 1930 Now</span>
+          </a>
+          <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-sm flex items-center justify-center gap-2 border border-white/20 transition-all">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>cybercrime.gov.in</span>
+          </a>
+          <a href="awareness.html#complaint-wizard" class="px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 transition-all">
+            <i data-lucide="file-edit" class="w-4 h-4"></i>
+            <span>Draft Complaint</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agency Directory Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      
+      <!-- 1. National Cyber Crime Reporting Portal -->
+      <div class="glass-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Ministry of Home Affairs</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/10 text-purple-300">Central Portal</span>
+          </div>
+          <h4 class="text-base font-bold text-white mb-1">National Cyber Crime Reporting Portal</h4>
+          <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+            Official platform to register formal FIRs online for financial fraud, deepfake harassment, and identity theft.
+          </p>
+          <div class="text-xs font-mono text-gray-300 space-y-1 mb-4">
+            <div><strong>Portal:</strong> <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" class="text-purple-400 hover:underline">cybercrime.gov.in</a></div>
+            <div><strong>Categories:</strong> Women/Child or Financial Crimes</div>
+          </div>
+        </div>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-center text-purple-300 transition-colors flex items-center justify-center gap-1.5">
+          <span>File Online Complaint</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- 2. CERT-In (Computer Emergency Response Team) -->
+      <div class="glass-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">MeitY, Govt. of India</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300">Incident Response</span>
+          </div>
+          <h4 class="text-base font-bold text-white mb-1">CERT-In Incident Desk</h4>
+          <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+            Nodal agency for handling cyber security incidents, phishing attacks, malware campaigns, and large-scale synthetic breaches.
+          </p>
+          <div class="text-xs font-mono text-gray-300 space-y-1 mb-4">
+            <div><strong>Helpline:</strong> <a href="tel:1800114949" class="text-indigo-400 hover:underline">1800-11-4949</a></div>
+            <div><strong>Email:</strong> <span class="text-indigo-400">incident@cert-in.org.in</span></div>
+          </div>
+        </div>
+        <a href="https://www.cert-in.org.in" target="_blank" rel="noopener" class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-center text-indigo-300 transition-colors flex items-center justify-center gap-1.5">
+          <span>Visit CERT-In Desk</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- 3. NCW Cyber Crime Cell (Women Safety) -->
+      <div class="glass-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">Women & Child Redressal</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-pink-500/10 text-pink-300">Fast-Track</span>
+          </div>
+          <h4 class="text-base font-bold text-white mb-1">NCW Cyber Cell & Women Helpline</h4>
+          <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+            Dedicated helplines for reporting online stalking, morphed synthetic photographs, blackmail, and privacy violations.
+          </p>
+          <div class="text-xs font-mono text-gray-300 space-y-1 mb-4">
+            <div><strong>NCW WhatsApp Helpline:</strong> <a href="tel:7827170170" class="text-pink-400 hover:underline">7827170170</a></div>
+            <div><strong>Women Helpline:</strong> <a href="tel:1091" class="text-pink-400 hover:underline">1091</a> / <a href="tel:181" class="text-pink-400 hover:underline">181</a></div>
+          </div>
+        </div>
+        <a href="https://wa.me/917827170170" target="_blank" rel="noopener" class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-center text-pink-300 transition-colors flex items-center justify-center gap-1.5">
+          <span>WhatsApp NCW Cell</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- 4. Childline India (POCSO) -->
+      <div class="glass-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Minor Protection</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300">POCSO Act</span>
+          </div>
+          <h4 class="text-base font-bold text-white mb-1">Childline India (1098)</h4>
+          <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+            Emergency 24x7 toll-free service for children in distress, reporting CSAM material, and cyberbullying of minors.
+          </p>
+          <div class="text-xs font-mono text-gray-300 space-y-1 mb-4">
+            <div><strong>Toll-Free Dial:</strong> <a href="tel:1098" class="text-amber-400 hover:underline">1098</a></div>
+            <div><strong>Report Anonymous:</strong> cybercrime.gov.in</div>
+          </div>
+        </div>
+        <a href="tel:1098" class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-center text-amber-300 transition-colors flex items-center justify-center gap-1.5">
+          <span>Call Childline (1098)</span>
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- 5. National Emergency Number -->
+      <div class="glass-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Immediate Dispatch</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300">Police / SOS</span>
+          </div>
+          <h4 class="text-base font-bold text-white mb-1">National Emergency Service (112)</h4>
+          <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+            Unified emergency helpline across India for immediate police assistance during physical extortion threats or active cyber harassment.
+          </p>
+          <div class="text-xs font-mono text-gray-300 space-y-1 mb-4">
+            <div><strong>Toll-Free Dial:</strong> <a href="tel:112" class="text-emerald-400 hover:underline">112</a></div>
+            <div><strong>App:</strong> 112 India (Google Play / App Store)</div>
+          </div>
+        </div>
+        <a href="tel:112" class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-center text-emerald-300 transition-colors flex items-center justify-center gap-1.5">
+          <span>Call Emergency (112)</span>
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- 6. 36 State Police Directory -->
+      <div class="glass-card p-6 flex flex-col justify-between border-purple-500/30">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Pan-India Directory</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/10 text-purple-300">36 States & UTs</span>
+          </div>
+          <h4 class="text-base font-bold text-white mb-1">State Cyber Crime Cells Directory</h4>
+          <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+            Direct access to official contact numbers, emails, and headquarters of all 36 State and Union Territory Cyber Police Stations.
+          </p>
+          <div class="text-xs font-mono text-gray-300 space-y-1 mb-4">
+            <div><strong>Coverage:</strong> Delhi, MH, KA, TN, UP, WB, etc.</div>
+            <div><strong>Features:</strong> Instant Search & 1-Click Copy</div>
+          </div>
+        </div>
+        <a href="awareness.html#state-directory" class="w-full py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/30">
+          <span>Search State Directory</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- 4-Step Action Plan for Victims -->
+    <div class="glass-card p-8 border-l-4 border-purple-500">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
+        <h3 class="text-lg font-bold text-white">What to Do If You Are a Victim of a Deepfake or Cyber Scam:</h3>
+        <a href="awareness.html#complaint-wizard" class="text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center gap-1">
+          <span>Use Automated Complaint Drafter</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs text-gray-300 mt-4">
+        <div class="p-3 bg-white/5 rounded-lg">
+          <div class="font-bold text-purple-400 mb-1">STEP 1: Preserve Proof</div>
+          <p class="text-gray-400">Do NOT delete chats. Take uncropped screenshots showing phone numbers, profile URLs, dates, and timestamps.</p>
+        </div>
+        <div class="p-3 bg-white/5 rounded-lg">
+          <div class="font-bold text-rose-400 mb-1">STEP 2: Dial 1930</div>
+          <p class="text-gray-400">If money was transferred, call 1930 immediately to freeze transactions before money leaves the banking network.</p>
+        </div>
+        <div class="p-3 bg-white/5 rounded-lg">
+          <div class="font-bold text-indigo-400 mb-1">STEP 3: File at Portal</div>
+          <p class="text-gray-400">Submit an official complaint at <strong>cybercrime.gov.in</strong>. An acknowledgment token will be sent via SMS.</p>
+        </div>
+        <div class="p-3 bg-white/5 rounded-lg">
+          <div class="font-bold text-emerald-400 mb-1">STEP 4: Demand Takedown</div>
+          <p class="text-gray-400">Email the platform grievance officer citing IT Act Section 66E / 67A for immediate 24-hour media deletion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benchmarks" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-xs font-semibold uppercase tracking-wider text-purple-400">Empirical Research</span>
+      <h2 class="text-3xl font-extrabold text-white mt-1">Cross-Generator & Robustness Benchmarks</h2>
+      <p class="text-sm text-gray-400 mt-2">
+        Evaluated on the Tiny-GenImage benchmark covering diverse GAN and Diffusion generator families, with held-out generator generalization and degradation stress testing.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Chart 1: Cross-Generator Accuracy -->
+      <div class="glass-card p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-base font-bold text-white">Cross-Generator Detection Accuracy</h3>
+            <p class="text-xs text-gray-400">Performance across multiple unseen generative families</p>
+          </div>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Tiny-GenImage</span>
+        </div>
+        <div class="h-72">
+          <canvas id="crossGenChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Robustness Under Degradation -->
+      <div class="glass-card p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-base font-bold text-white">Robustness Under Image Degradations</h3>
+            <p class="text-xs text-gray-400">Resilience to social media compression & noise</p>
+          </div>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Stress Test</span>
+        </div>
+        <div class="h-72">
+          <canvas id="robustnessChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SCIENTIFIC DISCLAIMER & FOOTER -->
+  <footer class="relative z-10 border-t border-white/10 bg-[#06070a] py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-6 text-center sm:text-left">
+      <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-200/90 text-xs leading-relaxed max-w-4xl mx-auto flex items-start gap-3">
+        <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <strong class="font-semibold text-amber-300">Scientific Disclaimer:</strong> RealTrace AI operates as a decision-support framework. Results are probabilistic indicators and should be combined with contextual evidence. For official cyber crime reporting in India, dial <strong>1930</strong> or visit <strong>cybercrime.gov.in</strong>.
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>
+          <span>© 2026 RealTrace AI Framework • Open Source MIT License</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="awareness.html" class="hover:text-purple-400 text-purple-300 font-semibold transition-colors">AI Awareness & Helplines Portal</a>
+          <a href="awareness.html#helplines-section" class="text-rose-400 hover:text-rose-300 transition-colors">National Cyber Portal (1930) 🇮🇳</a>
+          <a href="https://github.com/Durgjeet/RealTrace-AI" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub Repository</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Main Application Logic (ONNX Web, 2D FFT, Grad-CAM, jsPDF) -->
+  <script src="app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
