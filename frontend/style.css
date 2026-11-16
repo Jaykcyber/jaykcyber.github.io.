@@ -1,0 +1,410 @@
+/* RealTrace AI — Cyber-Forensic Workstation Theme */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-primary: #07080e;
+  --bg-secondary: #0f1019;
+  --bg-tertiary: #161826;
+  --panel-glass: rgba(15, 17, 28, 0.82);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(139, 92, 246, 0.35);
+  --accent-purple: #8b5cf6;
+  --accent-indigo: #6366f1;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+  --accent-amber: #f59e0b;
+  --accent-blue: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #f1f5f9;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Ambient subtle background glow */
+.ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(99, 102, 241, 0.04) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.3s ease;
+}
+
+/* Cyber ambient subtle grid */
+.cyber-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: var(--panel-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 24px -6px rgba(139, 92, 246, 0.12);
+}
+
+/* Helpline Emergency Card */
+.emergency-card {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.12), rgba(15, 16, 25, 0.95));
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(244, 63, 94, 0.15);
+}
+
+.emergency-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #f43f5e;
+}
+
+/* Subtle pulse for SOS buttons */
+@keyframes sos-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(244, 63, 94, 0);
+  }
+}
+
+.sos-badge {
+  animation: sos-pulse 2.5s infinite;
+}
+
+/* Dropzone styling */
+.dropzone-active {
+  border-color: var(--accent-purple) !important;
+  background: rgba(139, 92, 246, 0.08) !important;
+  box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+/* Radar scanline animation */
+@keyframes radar-sweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  30% { opacity: 0.9; }
+  70% { opacity: 0.9; }
+  100% { transform: translateY(320px); opacity: 0; }
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, #38bdf8, transparent);
+  box-shadow: 0 0 12px #8b5cf6, 0 0 20px #38bdf8;
+  animation: radar-sweep 2.2s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Magnifying Loupe Inspector */
+.magnifier-container {
+  position: relative;
+  display: inline-block;
+  cursor: crosshair;
+}
+
+.magnifier-lens {
+  position: absolute;
+  border: 2px solid #8b5cf6;
+  border-radius: 50%;
+  cursor: crosshair;
+  width: 120px;
+  height: 120px;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  display: none;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  z-index: 30;
+}
+
+/* Opacity slider comparison container */
+.comparison-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.comparison-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* Range input styling */
+input[type="range"] {
+  height: 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+/* Interactive Quiz Flip Card & States (for awareness.html) */
+.quiz-option {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -5px rgba(139, 92, 246, 0.2);
+}
+
+/* Studio Mode Pills & Video Forensics UI */
+.studio-mode-pill {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+#vtimeline-bar div {
+  transition: all 0.2s ease;
+}
+
+#vtimeline-bar div:hover {
+  filter: brightness(1.2);
+  transform: scaleY(1.1);
+  z-index: 10;
+}
+
+/* ========================================================================== */
+/* LIGHT MODE THEME OVERRIDES (Active when html does not have 'dark' class)    */
+/* ========================================================================== */
+
+html:not(.dark) {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --panel-glass: rgba(255, 255, 255, 0.92);
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(124, 58, 237, 0.35);
+}
+
+html:not(.dark) body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .ambient-glow {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(99, 102, 241, 0.03) 40%, transparent 70%);
+}
+
+html:not(.dark) .glass-card {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+html:not(.dark) .glass-card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 24px -4px rgba(139, 92, 246, 0.12);
+}
+
+/* Navigation & Announcement Bar */
+html:not(.dark) nav {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html:not(.dark) .bg-\[\#0c0d18\]\/90 {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+html:not(.dark) #mobile-menu-drawer {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Headings & Text */
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) .text-white {
+  color: #0f172a;
+}
+
+html:not(.dark) .text-slate-100,
+html:not(.dark) .text-slate-200,
+html:not(.dark) .text-gray-100,
+html:not(.dark) .text-gray-200 {
+  color: #1e293b;
+}
+
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-gray-300 {
+  color: #334155;
+}
+
+html:not(.dark) .text-slate-400,
+html:not(.dark) .text-gray-400 {
+  color: #64748b;
+}
+
+html:not(.dark) .text-slate-500,
+html:not(.dark) .text-gray-500 {
+  color: #94a3b8;
+}
+
+/* Maintain crisp white text inside colored action buttons */
+html:not(.dark) .bg-purple-600,
+html:not(.dark) .bg-rose-600,
+html:not(.dark) .bg-gradient-to-r,
+html:not(.dark) .bg-emerald-600,
+html:not(.dark) [class*="bg-purple-600"],
+html:not(.dark) [class*="bg-rose-600"] {
+  color: #ffffff !important;
+}
+
+html:not(.dark) .bg-purple-600 *,
+html:not(.dark) .bg-rose-600 *,
+html:not(.dark) .bg-gradient-to-r * {
+  color: inherit !important;
+}
+
+/* Form Controls & Dropdowns */
+html:not(.dark) select,
+html:not(.dark) input[type="text"],
+html:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) select:focus,
+html:not(.dark) input:focus,
+html:not(.dark) textarea:focus {
+  border-color: #8b5cf6 !important;
+}
+
+/* Dropzone in Light Mode */
+html:not(.dark) #dropzone,
+html:not(.dark) #video-dropzone {
+  background-color: rgba(248, 250, 252, 0.9) !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) #dropzone:hover,
+html:not(.dark) #video-dropzone:hover {
+  border-color: #8b5cf6 !important;
+  background-color: rgba(139, 92, 246, 0.04) !important;
+}
+
+/* Sample Buttons & Chips */
+html:not(.dark) .sample-btn,
+html:not(.dark) .video-sample-btn {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+html:not(.dark) .sample-btn:hover,
+html:not(.dark) .video-sample-btn:hover {
+  background-color: #f8fafc !important;
+  border-color: #8b5cf6 !important;
+  color: #0f172a !important;
+}
+
+/* Generic Muted Elements */
+html:not(.dark) .bg-white\/5 {
+  background-color: #f1f5f9 !important;
+}
+
+html:not(.dark) .bg-white\/10 {
+  background-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html:not(.dark) .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+html:not(.dark) .border-white\/15,
+html:not(.dark) .border-white\/20 {
+  border-color: #cbd5e1 !important;
+}
+
+/* Citizen Safety Section Card in Light Mode */
+html:not(.dark) section .glass-card.bg-gradient-to-br {
+  background: linear-gradient(135deg, rgba(245, 243, 255, 0.95) 0%, #ffffff 50%, rgba(239, 246, 255, 0.95) 100%) !important;
+  border-color: rgba(139, 92, 246, 0.25) !important;
+}
+
+/* Footer in Light Mode */
+html:not(.dark) footer {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Scrollbars in Light Mode */
+html:not(.dark)::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+html:not(.dark)::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+}
