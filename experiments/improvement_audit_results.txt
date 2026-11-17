@@ -1,0 +1,63 @@
+
+========== CHECKPOINT AUDIT ==========
+
+checkpoints/efficientnet_b0_best.pt
+model_name: efficientnet_b0
+epoch: 5
+val_accuracy: 0.9436923076923077
+image_size: 224
+training_stage: Not recorded
+base_checkpoint: Not recorded
+
+checkpoints/efficientnet_b0_generalized.pt
+model_name: efficientnet_b0
+epoch: 1
+val_accuracy: 0.9424691358024692
+image_size: 224
+training_stage: generalization_finetuning
+base_checkpoint: checkpoints/efficientnet_b0_best.pt
+
+========== MODERN DATASET AUDIT ==========
+Total images: 8000
+
+Generator counts:
+generator
+Defactify_Real    4000
+SDXL              1000
+SD3               1000
+DALLE3            1000
+MidjourneyV6      1000
+Name: count, dtype: int64
+
+Label counts:
+label
+0    4000
+1    4000
+Name: count, dtype: int64
+
+Generator and label cross-check:
+label              0     1
+generator                 
+DALLE3             0  1000
+Defactify_Real  4000     0
+MidjourneyV6       0  1000
+SD3                0  1000
+SDXL               0  1000
+
+Missing image files: 0
+
+========== TEST DATASET AUDIT ==========
+
+Dataset: data/processed/test_seen
+Total images: 2375
+Columns: ['image', 'label', 'generator']
+Label counts: Counter({1: 1500, 0: 875})
+Generator counts: Counter({'0': 875, '1': 250, '6': 250, '7': 250, '3': 250, '2': 250, '4': 250})
+
+Dataset: data/processed/test_unseen_wukong
+Total images: 1125
+Columns: ['image', 'label', 'generator']
+Label counts: Counter({0: 875, 1: 250})
+Generator counts: Counter({'0': 875, '8': 250})
+
+========== AUDIT COMPLETE ==========

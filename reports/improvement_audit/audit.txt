@@ -1,0 +1,1025 @@
+=== PROJECT FILES ===
+F:\SEM - 7\Capstone Project\RealTrace-AI\environment_test.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\gpu_computation_test.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\gpu_test.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_binary_classification.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_convolution_basics.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_dimensions_normalization.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_image_basics.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_neural_network_basics.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_tensor_basics.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_tiny_cnn.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\phase1_train_tiny_cnn.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\requirements.txt
+F:\SEM - 7\Capstone Project\RealTrace-AI\app\app.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\test_seen\dataset_info.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\test_seen\state.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\test_unseen_wukong\dataset_info.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\test_unseen_wukong\state.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\train_seen\dataset_info.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\train_seen\state.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\validation_seen\dataset_info.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\validation_seen\state.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\cross_generator\baseline.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\cross_generator\efficientnet_b0.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\cross_generator\resnet18.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\baseline_seen_test.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\baseline_unseen_wukong.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\efficientnet_b0_generalized_seen_test.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\efficientnet_b0_generalized_unseen_wukong.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\efficientnet_b0_seen_test.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\efficientnet_b0_unseen_wukong.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\resnet18_seen_test.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\evaluation\resnet18_unseen_wukong.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\robustness\baseline.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\robustness\efficientnet_b0.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\experiments\robustness\resnet18.json
+F:\SEM - 7\Capstone Project\RealTrace-AI\reports\improvement_audit\audit.txt
+F:\SEM - 7\Capstone Project\RealTrace-AI\scripts\download_models.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\data\create_modern_supplement.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\data\create_splits.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\data\dataloader.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\data\download_tiny_genimage.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\data\test_modern_dataset.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\evaluation\cross_generator.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\evaluation\evaluate.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\evaluation\robustness.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\explainability\gradcam_utils.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\forensics\frequency.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\forensics\test_frequency.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\inference\analyze_image.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\inference\sanity_check.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\inference\test_inference.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\models\baseline_cnn.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\models\model_factory.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\models\test_models.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\models\transfer_models.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\reporting\report_generator.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\training\finetune_generalized.py
+F:\SEM - 7\Capstone Project\RealTrace-AI\src\training\train.py
+
+=== REQUIREMENTS ===
+# contourpy==1.3.3
+# cycler==0.12.1
+# filelock==3.32.3
+# fonttools==4.63.0
+# fsspec==2026.7.0
+# Jinja2==3.1.6
+# kiwisolver==1.5.0
+# MarkupSafe==3.0.3
+# matplotlib==3.11.1
+# mpmath==1.3.0
+# networkx==3.6.1
+# numpy==2.5.2
+# opencv-python==5.0.0.93
+# packaging==26.3
+# pandas==3.0.5
+# pillow==12.3.0
+# pyparsing==3.3.2
+# python-dateutil==2.9.0.post0
+# setuptools==78.1.0
+# six==1.17.0
+# sympy==1.14.0
+# torch==2.12.1+cu126
+# torchvision==0.27.1+cu126
+# typing_extensions==4.16.0
+# tzdata==2026.3
+
+datasets==5.0.1
+grad-cam==1.5.7
+matplotlib==3.11.1
+numpy==2.5.2
+pandas==3.0.5
+Pillow==12.3.0
+reportlab==5.0.1
+scikit-learn==1.9.0
+scipy==1.18.1
+streamlit==1.62.0
+torch==2.12.1
+torchvision==0.27.1
+huggingface_hub
+
+=== TRAINING AND DATASET SCRIPTS ===
+
+
+========== F:\SEM - 7\Capstone Project\RealTrace-AI\src\data\dataloader.py ==========
+from datasets import load_from_disk
+from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
+
+
+class RealTraceDataset(Dataset):
+
+    def __init__(self, dataset_path, train=False):
+
+        self.dataset = load_from_disk(dataset_path)
+
+        if train:
+            self.transform = transforms.Compose([
+                transforms.Resize((224, 224)),
+                transforms.RandomHorizontalFlip(),
+                transforms.RandomResizedCrop(
+                    224,
+                    scale=(0.8, 1.0)
+                ),
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=[0.485, 0.456, 0.406],
+                    std=[0.229, 0.224, 0.225]
+                )
+            ])
+        else:
+            self.transform = transforms.Compose([
+                transforms.Resize((224, 224)),
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=[0.485, 0.456, 0.406],
+                    std=[0.229, 0.224, 0.225]
+                )
+            ])
+
+    def __len__(self):
+        return len(self.dataset)
+
+    def __getitem__(self, index):
+
+        item = self.dataset[index]
+
+        image = item["image"].convert("RGB")
+        image = self.transform(image)
+
+        return {
+            "image": image,
+            "label": item["label"],
+            "generator": item["generator"]
+        }
+
+
+def create_loader(
+    path,
+    batch_size=16,
+    shuffle=False,
+    train=False
+):
+
+    dataset = RealTraceDataset(
+        path,
+        train=train
+    )
+
+    return DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=shuffle,
+        num_workers=0,
+        pin_memory=True
+    )
+
+
+if __name__ == "__main__":
+
+    loader = create_loader(
+        "data/processed/train_seen",
+        batch_size=4,
+        shuffle=True,
+        train=True
+    )
+
+    batch = next(iter(loader))
+
+    print("Images:", batch["image"].shape)
+    print("Labels:", batch["label"])
+    print("Generators:", batch["generator"])
+
+
+========== F:\SEM - 7\Capstone Project\RealTrace-AI\src\data\test_modern_dataset.py ==========
+from datasets import load_dataset
+
+DATASET_NAME = "Rajarshi-Roy-research/Defactify_Image_Dataset"
+
+print("Loading only 10 samples...")
+
+dataset = load_dataset(
+    DATASET_NAME,
+    split="train[:10]"
+)
+
+print("\nSUCCESS")
+print(dataset)
+
+print("\nColumns:")
+print(dataset.column_names)
+
+print("\nFeatures:")
+print(dataset.features)
+
+print("\nFirst sample metadata:")
+
+sample = dataset[0]
+
+for key in dataset.column_names:
+    if key.lower() not in ["image", "img"]:
+        print(key, ":", sample[key])
+
+print("\nImage fields:")
+for key in dataset.column_names:
+    value = sample[key]
+    if hasattr(value, "size"):
+        print(key, ":", type(value), value.size)
+
+
+========== F:\SEM - 7\Capstone Project\RealTrace-AI\src\evaluation\evaluate.py ==========
+import argparse
+import csv
+import json
+import os
+import sys
+
+import torch
+
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix,
+    classification_report,
+)
+
+sys.path.append(
+    os.path.abspath(".")
+)
+
+from src.data.dataloader import create_loader
+from src.models.model_factory import create_model
+
+
+def load_model(
+    checkpoint_path,
+    device
+):
+
+    checkpoint = torch.load(
+        checkpoint_path,
+        map_location=device,
+        weights_only=False
+    )
+
+    model_name = checkpoint["model_name"]
+
+    model = create_model(
+        model_name
+    )
+
+    model.load_state_dict(
+        checkpoint["model_state_dict"]
+    )
+
+    model.to(device)
+
+    model.eval()
+
+    return model, checkpoint
+
+
+def evaluate(
+    model,
+    loader,
+    device
+):
+
+    all_labels = []
+    all_predictions = []
+    all_generators = []
+    all_probabilities = []
+
+    with torch.no_grad():
+
+        for batch in loader:
+
+            images = batch["image"].to(
+                device,
+                non_blocking=True
+            )
+
+            labels = batch["label"].to(
+                device
+            )
+
+            outputs = model(images)
+
+            probabilities = torch.softmax(
+                outputs,
+                dim=1
+            )
+
+            predictions = outputs.argmax(
+                dim=1
+            )
+
+            all_labels.extend(
+                labels.cpu().tolist()
+            )
+
+            all_predictions.extend(
+                predictions.cpu().tolist()
+            )
+
+            all_probabilities.extend(
+                probabilities[:, 1]
+                .cpu()
+                .tolist()
+            )
+
+            all_generators.extend(
+                batch["generator"].tolist()
+            )
+
+    return (
+        all_labels,
+        all_predictions,
+        all_probabilities,
+        all_generators
+    )
+
+
+def main():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--checkpoint",
+        required=True
+    )
+
+    parser.add_argument(
+        "--dataset",
+        required=True
+    )
+
+    parser.add_argument(
+        "--name",
+        required=True
+    )
+
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=16
+    )
+
+    args = parser.parse_args()
+
+    device = torch.device(
+        "cuda"
+        if torch.cuda.is_available()
+        else "cpu"
+    )
+
+    print("Device:", device)
+
+    model, checkpoint = load_model(
+        args.checkpoint,
+        device
+    )
+
+    model_name = checkpoint["model_name"]
+
+    print("Model:", model_name)
+    print("Dataset:", args.dataset)
+
+    loader = create_loader(
+        args.dataset,
+        batch_size=args.batch_size,
+        shuffle=False,
+        train=False
+    )
+
+    (
+        labels,
+        predictions,
+        probabilities,
+        generators
+    ) = evaluate(
+        model,
+        loader,
+        device
+    )
+
+    accuracy = accuracy_score(
+        labels,
+        predictions
+    )
+
+    precision = precision_score(
+        labels,
+        predictions,
+        zero_division=0
+    )
+
+    recall = recall_score(
+        labels,
+        predictions,
+        zero_division=0
+    )
+
+    f1 = f1_score(
+        labels,
+        predictions,
+        zero_division=0
+    )
+
+    matrix = confusion_matrix(
+        labels,
+        predictions
+    )
+
+    report = classification_report(
+        labels,
+        predictions,
+        target_names=[
+            "REAL",
+            "AI_GENERATED"
+        ],
+        zero_division=0
+    )
+
+    print("\n===== RESULTS =====")
+
+    print(
+        f"Accuracy:  {accuracy:.4f}"
+    )
+
+    print(
+        f"Precision: {precision:.4f}"
+    )
+
+    print(
+        f"Recall:    {recall:.4f}"
+    )
+
+    print(
+        f"F1-score:  {f1:.4f}"
+    )
+
+    print("\nConfusion Matrix:")
+    print(matrix)
+
+    print("\nClassification Report:")
+    print(report)
+
+    os.makedirs(
+        "experiments/evaluation",
+        exist_ok=True
+    )
+
+    result = {
+        "model": model_name,
+        "dataset": args.name,
+        "accuracy": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
+        "confusion_matrix":
+            matrix.tolist()
+    }
+
+    json_path = (
+        f"experiments/evaluation/"
+        f"{model_name}_{args.name}.json"
+    )
+
+    with open(
+        json_path,
+        "w"
+    ) as file:
+
+        json.dump(
+            result,
+            file,
+            indent=4
+        )
+
+    csv_path = (
+        f"experiments/evaluation/"
+        f"{model_name}_{args.name}"
+        f"_predictions.csv"
+    )
+
+    with open(
+        csv_path,
+        "w",
+        newline=""
+    ) as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow([
+            "label",
+            "prediction",
+            "ai_probability",
+            "generator"
+        ])
+
+        for row in zip(
+            labels,
+            predictions,
+            probabilities,
+            generators
+        ):
+            writer.writerow(row)
+
+    print(
+        "\nSaved:",
+        json_path
+    )
+
+    print(
+        "Saved:",
+        csv_path
+    )
+
+
+if __name__ == "__main__":
+    main()
+
+
+========== F:\SEM - 7\Capstone Project\RealTrace-AI\src\models\model_factory.py ==========
+from src.models.baseline_cnn import BaselineCNN
+
+from src.models.transfer_models import (
+    get_resnet18,
+    get_efficientnet_b0,
+    get_vit_b16,
+)
+
+
+def create_model(model_name):
+
+    if model_name == "baseline":
+        return BaselineCNN()
+
+    if model_name == "resnet18":
+        return get_resnet18()
+
+    if model_name == "efficientnet_b0":
+        return get_efficientnet_b0()
+
+    if model_name == "vit_b16":
+        return get_vit_b16()
+
+    raise ValueError(
+        f"Unsupported model: {model_name}"
+    )
+
+
+========== F:\SEM - 7\Capstone Project\RealTrace-AI\src\models\test_models.py ==========
+import os
+import sys
+import torch
+
+sys.path.append(
+    os.path.abspath(".")
+)
+
+from src.models.model_factory import create_model
+
+
+device = torch.device(
+    "cuda" if torch.cuda.is_available() else "cpu"
+)
+
+print("Device:", device)
+
+models = [
+    "baseline",
+    "resnet18",
+    "efficientnet_b0",
+    "vit_b16",
+]
+
+dummy = torch.randn(
+    2,
+    3,
+    224,
+    224
+).to(device)
+
+
+for name in models:
+
+    print("\nTesting:", name)
+
+    model = create_model(name).to(device)
+
+    model.eval()
+
+    with torch.no_grad():
+        output = model(dummy)
+
+    print("Output shape:", output.shape)
+
+    del model
+
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+
+print("\nAll model tests completed.")
+
+
+========== F:\SEM - 7\Capstone Project\RealTrace-AI\src\models\transfer_models.py ==========
+import torch.nn as nn
+
+from torchvision.models import (
+    resnet18,
+    ResNet18_Weights,
+    efficientnet_b0,
+    EfficientNet_B0_Weights,
+    vit_b_16,
+    ViT_B_16_Weights,
+)
+
+
+def get_resnet18(num_classes=2):
+
+    model = resnet18(
+        weights=ResNet18_Weights.DEFAULT
+    )
+
+    model.fc = nn.Linear(
+        model.fc.in_features,
+        num_classes
+    )
+
+    return model
+
+
+def get_efficientnet_b0(num_classes=2):
+
+    model = efficientnet_b0(
+        weights=EfficientNet_B0_Weights.DEFAULT
+    )
+
+    model.classifier[1] = nn.Linear(
+        model.classifier[1].in_features,
+        num_classes
+    )
+
+    return model
+
+
+def get_vit_b16(num_classes=2):
+
+    model = vit_b_16(
+        weights=ViT_B_16_Weights.DEFAULT
+    )
+
+    model.heads.head = nn.Linear(
+        model.heads.head.in_features,
+        num_classes
+    )
+
+    return model
+
+
+========== F:\SEM - 7\Capstone Project\RealTrace-AI\src\training\train.py ==========
+import argparse
+import csv
+import os
+import sys
+
+import torch
+import torch.nn as nn
+from tqdm import tqdm
+
+sys.path.append(
+    os.path.abspath(".")
+)
+
+from src.data.dataloader import create_loader
+from src.models.model_factory import create_model
+
+
+def evaluate(model, loader, device, criterion):
+
+    model.eval()
+
+    total = 0
+    correct = 0
+    total_loss = 0.0
+
+    with torch.no_grad():
+
+        for batch in loader:
+
+            images = batch["image"].to(
+                device,
+                non_blocking=True
+            )
+
+            labels = batch["label"].to(
+                device,
+                non_blocking=True
+            )
+
+            outputs = model(images)
+
+            loss = criterion(
+                outputs,
+                labels
+            )
+
+            total_loss += (
+                loss.item() * labels.size(0)
+            )
+
+            predictions = outputs.argmax(dim=1)
+
+            correct += (
+                predictions == labels
+            ).sum().item()
+
+            total += labels.size(0)
+
+    return (
+        total_loss / total,
+        correct / total
+    )
+
+
+def main():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--model",
+        choices=[
+            "baseline",
+            "resnet18",
+            "efficientnet_b0",
+            "vit_b16",
+        ],
+        required=True
+    )
+
+    parser.add_argument(
+        "--epochs",
+        type=int,
+        default=5
+    )
+
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=16
+    )
+
+    parser.add_argument(
+        "--lr",
+        type=float,
+        default=0.0001
+    )
+
+    args = parser.parse_args()
+
+    device = torch.device(
+        "cuda"
+        if torch.cuda.is_available()
+        else "cpu"
+    )
+
+    print("Model:", args.model)
+    print("Device:", device)
+    print("Epochs:", args.epochs)
+    print("Batch size:", args.batch_size)
+    print("Learning rate:", args.lr)
+
+    train_loader = create_loader(
+        "data/processed/train_seen",
+        batch_size=args.batch_size,
+        shuffle=True,
+        train=True
+    )
+
+    val_loader = create_loader(
+        "data/processed/validation_seen",
+        batch_size=args.batch_size,
+        shuffle=False,
+        train=False
+    )
+
+    model = create_model(
+        args.model
+    ).to(device)
+
+    criterion = nn.CrossEntropyLoss()
+
+    optimizer = torch.optim.AdamW(
+        model.parameters(),
+        lr=args.lr
+    )
+
+    os.makedirs(
+        "checkpoints",
+        exist_ok=True
+    )
+
+    os.makedirs(
+        "experiments/training",
+        exist_ok=True
+    )
+
+    history_path = (
+        f"experiments/training/"
+        f"{args.model}_history.csv"
+    )
+
+    with open(
+        history_path,
+        "w",
+        newline=""
+    ) as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow([
+            "epoch",
+            "train_loss",
+            "train_accuracy",
+            "val_loss",
+            "val_accuracy",
+        ])
+
+    best_val_accuracy = -1.0
+
+    for epoch in range(1, args.epochs + 1):
+
+        model.train()
+
+        total = 0
+        correct = 0
+        total_loss = 0.0
+
+        progress = tqdm(
+            train_loader,
+            desc=f"Epoch {epoch}/{args.epochs}"
+        )
+
+        for batch in progress:
+
+            images = batch["image"].to(
+                device,
+                non_blocking=True
+            )
+
+            labels = batch["label"].to(
+                device,
+                non_blocking=True
+            )
+
+            optimizer.zero_grad()
+
+            outputs = model(images)
+
+            loss = criterion(
+                outputs,
+                labels
+            )
+
+            loss.backward()
+
+            optimizer.step()
+
+            total_loss += (
+                loss.item() * labels.size(0)
+            )
+
+            predictions = outputs.argmax(
+                dim=1
+            )
+
+            correct += (
+                predictions == labels
+            ).sum().item()
+
+            total += labels.size(0)
+
+            progress.set_postfix(
+                loss=f"{loss.item():.4f}"
+            )
+
+        train_loss = total_loss / total
+        train_accuracy = correct / total
+
+        val_loss, val_accuracy = evaluate(
+            model,
+            val_loader,
+            device,
+            criterion
+        )
+
+        print(
+            f"\nEpoch {epoch}: "
+            f"train_loss={train_loss:.4f}, "
+            f"train_acc={train_accuracy:.4f}, "
+            f"val_loss={val_loss:.4f}, "
+            f"val_acc={val_accuracy:.4f}"
+        )
+
+        with open(
+            history_path,
+            "a",
+            newline=""
+        ) as file:
+
+            writer = csv.writer(file)
+
+            writer.writerow([
+                epoch,
+                train_loss,
+                train_accuracy,
+                val_loss,
+                val_accuracy,
+            ])
+
+        if val_accuracy > best_val_accuracy:
+
+            best_val_accuracy = val_accuracy
+
+            checkpoint_path = (
+                f"checkpoints/"
+                f"{args.model}_best.pt"
+            )
+
+            torch.save(
+                {
+                    "model_name": args.model,
+                    "model_state_dict":
+                        model.state_dict(),
+                    "optimizer_state_dict":
+                        optimizer.state_dict(),
+                    "epoch": epoch,
+                    "val_accuracy":
+                        val_accuracy,
+                    "image_size": 224,
+                    "class_mapping": {
+                        0: "REAL",
+                        1: "AI_GENERATED",
+                    }
+                },
+                checkpoint_path
+            )
+
+            print(
+                "Saved best checkpoint:",
+                checkpoint_path
+            )
+
+    print("\nTraining completed.")
+    print(
+        "Best validation accuracy:",
+        best_val_accuracy
+    )
+
+
+if __name__ == "__main__":
+    main()
+
+=== CHECKPOINTS ===
+
+Name                              Length
+----                              ------
+baseline_best.pt                 4709187
+baseline_development.pt          4709187
+efficientnet_b0_best.pt         48611834
+efficientnet_b0_development.pt  48611834
+efficientnet_b0_generalized.pt  48619765
+resnet18_best.pt               134264435
+resnet18_development.pt        134264435
+
+
+
+=== DATASET FOLDERS ===
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_test
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_unseen
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\raw
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_test\chatgpt
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_test\gemini
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_test\real
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_unseen\gemini
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_unseen\leonardo
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\external_unseen\real
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\modern_supplement
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\test_seen
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\test_unseen_wukong
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\train_seen
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\validation_seen
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\modern_supplement\images
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\modern_supplement\images\DALLE3
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\modern_supplement\images\Defactify_Real
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\modern_supplement\images\MidjourneyV6
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\modern_supplement\images\SD3
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\processed\modern_supplement\images\SDXL
+F:\SEM - 7\Capstone Project\RealTrace-AI\data\raw\GenImage
